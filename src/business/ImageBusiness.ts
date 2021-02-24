@@ -61,4 +61,16 @@ export class ImageBusiness {
 
       return image;
    }
+
+   async getAllImages() {
+
+      const images = await this.imageDatabase.getAllImages();
+
+      if (!images) {
+         throw new CustomError(404, "Image Not Found!");
+      }
+
+      return images;
+   }
+
 }

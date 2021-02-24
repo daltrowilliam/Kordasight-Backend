@@ -60,4 +60,17 @@ export class ImageDatabase extends BaseDatabase {
          throw new CustomError(500, "An unexpected error ocurred");
       }
    }
+
+   public async getAllImages(): Promise<Image> {
+      try {
+         const result = await BaseDatabase.connection.raw(`
+            SELECT * FROM '${ImageDatabase.TABLE_NAME}';
+         `)
+
+         return ImageDatabase.toImageModel(result[0][0]);
+
+      } catch (error) {
+         throw new CustomError(500, "An unexpected error ocurred");
+      }
+   }
 }

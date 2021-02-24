@@ -14,7 +14,7 @@ const imageBusiness = new ImageBusiness(
 );
 
 export class ImageController {
-   async registry(req: Request, res: Response) {
+   async registryImage(req: Request, res: Response) {
       try {
 
          const { authorization } = req.headers
@@ -56,5 +56,22 @@ export class ImageController {
             .send({ error: error.message });
       }
    }
+
+
+
+async getAllImages(req: Request, res: Response) {
+
+   try {
+
+      const images = await imageBusiness.getAllImages();
+
+      res.status(200).send({ images });
+
+   } catch (error) {
+      res
+         .status(error.statusCode || 400)
+         .send({ error: error.message });
+   }
+}
 
 }

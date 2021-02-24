@@ -1,10 +1,11 @@
 import express from "express";
-import { BandController } from "../BandController";
+import { ImageController } from "../ImageController";
 
 
-export const bandRouter = express.Router();
+export const imageRouter = express.Router();
 
-const bandController = new BandController();
+const imageController = new ImageController();
 
-bandRouter.post("/registry", bandController.registry);
-bandRouter.get("/:week_day", bandController.getProfile);
+imageRouter.post("/registry", imageController.registryImage);
+imageRouter.get("/", imageController.getAllImages);
+imageRouter.get("/:id", imageController.getImageById);
