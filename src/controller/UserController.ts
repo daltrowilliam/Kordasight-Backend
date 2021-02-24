@@ -26,7 +26,7 @@ export class UserController {
 
          const token = await userBusiness.createUser(input);
 
-         res.status(200).send({ token });
+         res.status(200).send({token });
 
       } catch (error) {
          res

@@ -42,11 +42,13 @@ export class ImageController {
 
    async getImageById(req: Request, res: Response) {
 
+      const { authorization } = req.headers
+
       try {
 
          const id = req.params.id;
 
-         const image = await imageBusiness.getImageById(id);
+         const image = await imageBusiness.getImageById(id, authorization);
 
          res.status(200).send({ image });
 
@@ -61,9 +63,11 @@ export class ImageController {
 
 async getAllImages(req: Request, res: Response) {
 
+   const { authorization } = req.headers
+
    try {
 
-      const images = await imageBusiness.getAllImages();
+      const images = await imageBusiness.getAllImages(authorization);
 
       res.status(200).send({ images });
 

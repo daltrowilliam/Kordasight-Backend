@@ -51,7 +51,13 @@ export class ImageBusiness {
       return "Registry Done!";
    }
 
-   async getImageById(id: string) {
+   async getImageById(id: string, authorization: string | undefined) {
+
+      const tokenData: AuthenticationData = this.authenticator.getData(authorization!)
+
+      if (!tokenData) {
+         throw new CustomError(403, "Invalid Token")
+      }
 
       const image = await this.imageDatabase.getImageById(id);
 
@@ -62,7 +68,13 @@ export class ImageBusiness {
       return image;
    }
 
-   async getAllImages() {
+   async getAllImages(authorization: string | undefined) {
+
+      const tokenData: AuthenticationData = this.authenticator.getData(authorization!)
+
+      if (!tokenData) {
+         throw new CustomError(403, "Invalid Token")
+      }
 
       const images = await this.imageDatabase.getAllImages();
 

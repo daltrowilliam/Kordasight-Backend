@@ -50,7 +50,7 @@ export class ImageDatabase extends BaseDatabase {
    public async getImageById(id: string): Promise<Image> {
       try {
          const result = await BaseDatabase.connection.raw(`
-            SELECT * FROM '${ImageDatabase.TABLE_NAME}'
+            SELECT * FROM ${ImageDatabase.TABLE_NAME}
             WHERE id = '${id}';
          `)
 
@@ -63,13 +63,15 @@ export class ImageDatabase extends BaseDatabase {
 
    public async getAllImages(): Promise<Image> {
       try {
+         
          const result = await BaseDatabase.connection.raw(`
-            SELECT * FROM '${ImageDatabase.TABLE_NAME}';
+            SELECT * FROM ${ImageDatabase.TABLE_NAME};
          `)
 
-         return ImageDatabase.toImageModel(result[0][0]);
+         return result[0];
 
       } catch (error) {
+         console.log(error)
          throw new CustomError(500, "An unexpected error ocurred");
       }
    }

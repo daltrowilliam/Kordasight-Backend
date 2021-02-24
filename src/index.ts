@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 
 app.use("/user", userRouter);
-app.use("/images", imageRouter);
+app.use("/image", imageRouter);
 
 
 const server = app.listen(3003, () => {
