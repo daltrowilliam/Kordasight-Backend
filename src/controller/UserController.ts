@@ -44,9 +44,9 @@ export class UserController {
             password: req.body.password
          };
 
-         const token = await userBusiness.login(loginData);
-
-         res.status(200).send({ token });
+         const result = await userBusiness.login(loginData);
+        
+         res.status(200).send({ result });
 
       } catch (error) {
          res

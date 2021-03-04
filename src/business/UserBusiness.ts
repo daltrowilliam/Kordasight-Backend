@@ -85,6 +85,8 @@ export class UserBusiness {
          id: userFromDB.id
       });
 
-      return accessToken;
+      const username = userFromDB.name
+
+      return {accessToken, username};
    }
 }
