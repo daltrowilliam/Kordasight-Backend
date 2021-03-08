@@ -75,4 +75,16 @@ export class ImageDatabase extends BaseDatabase {
          throw new CustomError(500, "An unexpected error ocurred");
       }
    }
+
+   public async deleteImageById(id: string): Promise<any> {
+      try {
+         await BaseDatabase.connection.raw(`
+            DELETE FROM ${ImageDatabase.TABLE_NAME}
+            WHERE id = '${id}';
+         `)
+
+      } catch (error) {
+         throw new CustomError(500, "An unexpected error ocurred");
+      }
+   }
 }

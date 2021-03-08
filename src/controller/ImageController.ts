@@ -78,4 +78,23 @@ async getAllImages(req: Request, res: Response) {
    }
 }
 
+async deleteImageById(req: Request, res: Response) {
+
+   const { authorization } = req.headers
+
+   try {
+
+      const id = req.params.id;
+
+      await imageBusiness.deleteImageById(id, authorization);
+
+      res.status(200).send("Imagem excluída com sucesso!");
+
+   } catch (error) {
+      res
+         .status(error.statusCode || 400)
+         .send({ error: error.message });
+   }
+}
+
 }

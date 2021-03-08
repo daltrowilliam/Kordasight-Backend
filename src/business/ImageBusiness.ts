@@ -68,6 +68,24 @@ export class ImageBusiness {
       return image;
    }
 
+   async deleteImageById(id: string, authorization: string | undefined) {
+
+      const tokenData: AuthenticationData = this.authenticator.getData(authorization!)
+
+      if (!tokenData) {
+         throw new CustomError(403, "Invalid Token")
+      }
+
+      const image = await this.imageDatabase.getImageById(id);
+
+      if (!image) {
+         throw new CustomError(404, "Image Not Found!");
+      }
+
+      await this.imageDatabase.deleteImageById(id);
+
+   }
+
    async getAllImages(authorization: string | undefined) {
 
       const tokenData: AuthenticationData = this.authenticator.getData(authorization!)
