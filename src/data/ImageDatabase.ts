@@ -71,7 +71,6 @@ export class ImageDatabase extends BaseDatabase {
          return result[0];
 
       } catch (error) {
-         console.log(error)
          throw new CustomError(500, "An unexpected error ocurred");
       }
    }

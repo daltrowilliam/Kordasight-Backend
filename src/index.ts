@@ -15,7 +15,7 @@ app.use("/image", imageRouter);
 
 
 
-const server = app.listen(3003, () => {
+const server = app.listen(process.env.PORT || 3003, () => {
    if (server) {
       const address = server.address() as AddressInfo;
       console.log(`Servidor rodando em http://localhost:${address.port}`);
