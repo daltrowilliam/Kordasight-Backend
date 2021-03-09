@@ -12,7 +12,7 @@ app.use(cors_1.default());
 app.use(express_1.default.json());
 app.use("/user", userRouter_1.userRouter);
 app.use("/image", imageRouter_1.imageRouter);
-const server = app.listen(3003, () => {
+const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
         const address = server.address();
         console.log(`Servidor rodando em http://localhost:${address.port}`);

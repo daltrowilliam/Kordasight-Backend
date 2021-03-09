@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getCreatedDate = void 0;
-const getCreatedDate = (format) => {
+exports.getCreatedDate = (format) => {
     const date = new Date();
     const day = date.getDate();
     const month = date.getMonth() + 1;
@@ -20,5 +20,4 @@ const getCreatedDate = (format) => {
     }
     return created_date;
 };
-exports.getCreatedDate = getCreatedDate;
 //# sourceMappingURL=getCreatedDate.js.map

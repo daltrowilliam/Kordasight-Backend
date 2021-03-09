@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev ./src/index.ts",
-    "start": "tsc && node ./build/src/index.js",
+    "start": "tsc && node ./build/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc"
   },
@@ -20,9 +20,7 @@
     "url": "https://github.com/daltrowilliam/backend/issues"
   },
   "homepage": "https://github.com/daltrowilliam/backend#readme",
-  "devDependencies": {
-    
-  },
+  "devDependencies": {},
   "dependencies": {
     "@types/bcryptjs": "^2.4.2",
     "@types/jsonwebtoken": "^8.5.0",

@@ -60,7 +60,6 @@ class ImageDatabase extends BaseDatabase_1.BaseDatabase {
                 return result[0];
             }
             catch (error) {
-                console.log(error);
                 throw new CustomError_1.CustomError(500, "An unexpected error ocurred");
             }
         });
